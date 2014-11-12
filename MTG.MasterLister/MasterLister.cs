@@ -22,8 +22,10 @@ namespace MTG.MasterLister
 
             foreach (var line in deckListSplitByLine)
             {
-                var splittedLine = line.Split(' ');
-                cards.Add(_cardFactory.GenerateCard(Convert.ToInt32(splittedLine[0]), splittedLine[1]));
+                var quantity = Convert.ToInt32(line[0].ToString());
+                var name = line.Substring(2, line.Length - 2);
+
+                cards.Add(_cardFactory.GenerateCard(quantity, name));
             }
         }
     }

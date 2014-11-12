@@ -13,7 +13,8 @@ namespace MTG.MasterLister
                 throw new InvalidOperationException("Decklist cannot be empty.");
             }
 
-            var deckListSplitByLine = decklist.Split('\n').ToList();
+            var deckListSplitByLine = decklist.Split(new [] { '\n', '\r' }).ToList();
+            deckListSplitByLine.RemoveAll(string.IsNullOrEmpty);
 
             foreach (var line in deckListSplitByLine)
             {
