@@ -1,4 +1,5 @@
 ﻿using System;
+using MTG.MasterLister.Domain;
 using NUnit.Framework;
 
 namespace MTG.MasterLister.Tests

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MTG.MasterLister
+namespace MTG.MasterLister.Domain
 {
     public class DecklistParser : IDecklistParser
     {

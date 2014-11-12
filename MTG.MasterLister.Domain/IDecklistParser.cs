@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MTG.MasterLister
+namespace MTG.MasterLister.Domain
 {
     public interface IDecklistParser
     {

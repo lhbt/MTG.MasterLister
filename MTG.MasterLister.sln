@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTG.MasterLister", "MTG.MasterLister\MTG.MasterLister.csproj", "{D703AF01-907B-43A4-B925-E990825E623B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTG.MasterLister.UI", "MTG.MasterLister.UI\MTG.MasterLister.UI.csproj", "{D703AF01-907B-43A4-B925-E990825E623B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{94E91797-0F49-4C38-ADFC-ECF4D8DDCFA6}"
 EndProject
@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{364C26
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTG.MasterLister.Domain", "MTG.MasterLister.Domain\MTG.MasterLister.Domain.csproj", "{D57F8C72-DECD-461B-9AAC-0AF792D04BC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +30,10 @@ Global
 		{71AABDF0-F326-4C2C-BD22-5AB7CC0B4521}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71AABDF0-F326-4C2C-BD22-5AB7CC0B4521}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71AABDF0-F326-4C2C-BD22-5AB7CC0B4521}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D57F8C72-DECD-461B-9AAC-0AF792D04BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D57F8C72-DECD-461B-9AAC-0AF792D04BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D57F8C72-DECD-461B-9AAC-0AF792D04BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D57F8C72-DECD-461B-9AAC-0AF792D04BC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

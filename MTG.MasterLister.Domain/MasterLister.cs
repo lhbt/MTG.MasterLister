@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MTG.MasterLister
+namespace MTG.MasterLister.Domain
 {
-    public class MasterLister
+    public class MTGMasterLister
     {
         private readonly IDecklistParser _decklistParser;
         private readonly ICardFactory _cardFactory;
 
-        public MasterLister(IDecklistParser decklistParser, ICardFactory cardFactory)
+        public MTGMasterLister(IDecklistParser decklistParser, ICardFactory cardFactory)
         {
             _decklistParser = decklistParser;
             _cardFactory = cardFactory;

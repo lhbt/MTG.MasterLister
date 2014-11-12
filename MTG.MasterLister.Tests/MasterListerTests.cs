@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using MTG.MasterLister.Domain;
+using NUnit.Framework;
 using Rhino.Mocks;
 
 namespace MTG.MasterLister.Tests
@@ -11,7 +12,7 @@ namespace MTG.MasterLister.Tests
             var cardFactory = MockRepository.GenerateMock<ICardFactory>();
             const string deckList = @"4 Tarmogoyf";
 
-            var masterLister = new MasterLister(new DecklistParser(), cardFactory);
+            var masterLister = new MTGMasterLister(new DecklistParser(), cardFactory);
             masterLister.Process(deckList);
 
             cardFactory.AssertWasCalled(x => x.GenerateCard(4, "Tarmogoyf"));
@@ -23,7 +24,7 @@ namespace MTG.MasterLister.Tests
             var cardFactory = MockRepository.GenerateMock<ICardFactory>();
             const string deckList = @"4 Deathrite Shaman";
 
-            var masterLister = new MasterLister(new DecklistParser(), cardFactory);
+            var masterLister = new MTGMasterLister(new DecklistParser(), cardFactory);
             masterLister.Process(deckList);
 
             cardFactory.AssertWasCalled(x => x.GenerateCard(4, "Deathrite Shaman"));
