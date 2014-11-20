@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MTG.MasterLister.Domain.Contracts;
 
 namespace MTG.MasterLister.Domain
 {
@@ -7,26 +6,22 @@ namespace MTG.MasterLister.Domain
     {
         private readonly IDecklistParser _decklistParser;
         private readonly ICardFactory _cardFactory;
+        private readonly IDatabaseAgent _databaseAgent;
 
-        public MTGMasterLister(IDecklistParser decklistParser, ICardFactory cardFactory)
+        public MTGMasterLister(IDecklistParser decklistParser, ICardFactory cardFactory, IDatabaseAgent databaseAgent)
         {
             _decklistParser = decklistParser;
             _cardFactory = cardFactory;
+            _databaseAgent = databaseAgent;
         }
 
         public void Process(string decklist)
         {
             var deckListSplitByLine = _decklistParser.ParseDecklist(decklist);
 
-            var cards = new List<Card>();
+            var cards = _cardFactory.GenerateCards(deckListSplitByLine);
 
-            foreach (var line in deckListSplitByLine)
-            {
-                var quantity = Convert.ToInt32(line[0].ToString());
-                var name = line.Substring(2, line.Length - 2);
-
-                cards.Add(_cardFactory.GenerateCard(quantity, name));
-            }
+            var updates = _databaseAgent.CheckAndUpdateForThoseCards(cards);
         }
     }
 }

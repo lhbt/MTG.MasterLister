@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseAgentTests.cs" />
     <Compile Include="DecklistParserTests.cs" />
     <Compile Include="MasterListerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

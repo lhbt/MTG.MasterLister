@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MTG.MasterLister.Domain;
 using NUnit.Framework;
 
@@ -23,6 +24,18 @@ namespace MTG.MasterLister.Tests
             }
 
             Assert.That(exception.Message, Is.EqualTo("Decklist cannot be empty."));
+        }
+
+        [Test]
+        public void it_should_return_a_list_of_string()
+        {
+            const string deckList = @"4 Tarmogoyf";
+            var classUnderTest = new DecklistParser();
+
+            var parsedDecklist = classUnderTest.ParseDecklist(deckList);
+
+            Assert.That(parsedDecklist.Count, Is.EqualTo(1));
+            Assert.That(parsedDecklist.First(), Is.EquivalentTo(deckList));
         }
 
         [Test]

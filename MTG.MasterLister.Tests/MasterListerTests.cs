@@ -1,4 +1,6 @@
-﻿using MTG.MasterLister.Domain;
+﻿using System.Collections.Generic;
+using MTG.MasterLister.Domain;
+using MTG.MasterLister.Domain.Contracts;
 using NUnit.Framework;
 using Rhino.Mocks;
 
@@ -6,28 +8,45 @@ namespace MTG.MasterLister.Tests
 {
     public class MasterListerTests
     {
-        [Test]
-        public void it_should_create_a_card_object_per_line_in_the_decklist()
+        private IDecklistParser _deckListParser;
+        private ICardFactory _cardFactory;
+        private IDatabaseAgent _databaseAgent;
+        private MTGMasterLister _masterLister;
+
+        private const string DeckList = @"4 Tarmogoyf";
+
+        [SetUp]
+        public void Setup()
         {
-            var cardFactory = MockRepository.GenerateMock<ICardFactory>();
-            const string deckList = @"4 Tarmogoyf";
+            _deckListParser = MockRepository.GenerateMock<IDecklistParser>();
+            _cardFactory = MockRepository.GenerateMock<ICardFactory>();
+            _databaseAgent = MockRepository.GenerateMock<IDatabaseAgent>();
 
-            var masterLister = new MTGMasterLister(new DecklistParser(), cardFactory);
-            masterLister.Process(deckList);
-
-            cardFactory.AssertWasCalled(x => x.GenerateCard(4, "Tarmogoyf"));
+            _masterLister = new MTGMasterLister(_deckListParser, _cardFactory, _databaseAgent);
         }
 
         [Test]
-        public void it_should_handle_cards_with_complex_names()
+        public void it_should_create_a_card_object_per_line_in_the_decklist()
         {
-            var cardFactory = MockRepository.GenerateMock<ICardFactory>();
-            const string deckList = @"4 Deathrite Shaman";
+            _masterLister.Process(DeckList);
 
-            var masterLister = new MTGMasterLister(new DecklistParser(), cardFactory);
-            masterLister.Process(deckList);
+            _cardFactory.AssertWasCalled(x => x.GenerateCards(Arg<IEnumerable<string>>.Is.Anything));
+        }
 
-            cardFactory.AssertWasCalled(x => x.GenerateCard(4, "Deathrite Shaman"));
+        [Test]
+        public void it_should_format_the_decklist()
+        { 
+            _masterLister.Process(DeckList);
+
+            _deckListParser.AssertWasCalled(x => x.ParseDecklist(DeckList));
+        }
+
+        [Test]
+        public void it_should_check_the_database_for_those_cards()
+        {
+            _masterLister.Process(DeckList);
+
+            _databaseAgent.AssertWasCalled(x => x.CheckAndUpdateForThoseCards(Arg<IEnumerable<Card>>.Is.Anything));
         }
     }
 }

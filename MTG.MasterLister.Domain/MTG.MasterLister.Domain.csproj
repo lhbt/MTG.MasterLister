@@ -40,9 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
+    <Compile Include="CardFactory.cs" />
+    <Compile Include="DatabaseAgent.cs" />
     <Compile Include="DecklistParser.cs" />
-    <Compile Include="ICardFactory.cs" />
-    <Compile Include="IDecklistParser.cs" />
+    <Compile Include="Contracts\ICardFactory.cs" />
+    <Compile Include="Contracts\IDecklistParser.cs" />
+    <Compile Include="Contracts\IDatabaseAgent.cs" />
+    <Compile Include="Contracts\IDatabaseWrapper.cs" />
     <Compile Include="MasterLister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
