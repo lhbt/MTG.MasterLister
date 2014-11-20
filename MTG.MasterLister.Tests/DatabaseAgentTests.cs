@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MTG.MasterLister.DataAccess;
 using MTG.MasterLister.Domain;
 using MTG.MasterLister.Domain.Contracts;
 using NUnit.Framework;
@@ -22,7 +23,6 @@ namespace MTG.MasterLister.Tests
             databaseWrapper.Stub(x => x.CheckQuantityForCard(cardName)).Return(2);
 
             var databaseAgent = new DatabaseAgent(databaseWrapper);
-
             databaseAgent.CheckAndUpdateForThoseCards(cards);
 
             databaseWrapper.AssertWasCalled(x => x.CheckQuantityForCard(cardName));

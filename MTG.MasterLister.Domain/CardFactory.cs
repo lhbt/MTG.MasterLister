@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using MTG.MasterLister.DataAccess;
 using MTG.MasterLister.Domain.Contracts;
 
 namespace MTG.MasterLister.Domain

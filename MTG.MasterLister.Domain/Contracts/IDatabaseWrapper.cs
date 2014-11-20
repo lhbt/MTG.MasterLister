@@ -3,6 +3,6 @@
     public interface IDatabaseWrapper
     {
         int CheckQuantityForCard(string cardName);
-        void UpdateCardQuantity(string cardName, int newQuantity);
+        void UpdateCardQuantityNeeded(string cardName, int newQuantity);
     }
 }

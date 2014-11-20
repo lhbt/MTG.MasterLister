@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MTG.MasterLister.DataAccess;
 using MTG.MasterLister.Domain.Contracts;
 
 namespace MTG.MasterLister.Domain
@@ -20,10 +21,10 @@ namespace MTG.MasterLister.Domain
             {
                 var actualCardQuantity = _databaseWrapper.CheckQuantityForCard(card.Name);
 
-                if (actualCardQuantity >= card.Quantity) continue;
+                if (actualCardQuantity >= card.QuantityNeeded) continue;
 
-                _databaseWrapper.UpdateCardQuantity(card.Name, card.Quantity);
-                var updateMessage = string.Format("Updated card: {0}. Old quantity was: {1}, new quantity is {2}.", card.Name, actualCardQuantity, card.Quantity);
+                _databaseWrapper.UpdateCardQuantityNeeded(card.Name, card.QuantityNeeded);
+                var updateMessage = string.Format("Updated card: {0}. Old quantity was: {1}, new quantity is {2}.", card.Name, actualCardQuantity, card.QuantityNeeded);
                 updates.Add(updateMessage);
             }
 

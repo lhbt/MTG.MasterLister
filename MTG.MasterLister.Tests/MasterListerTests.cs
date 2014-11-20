@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MTG.MasterLister.DataAccess;
 using MTG.MasterLister.Domain;
 using MTG.MasterLister.Domain.Contracts;
 using NUnit.Framework;

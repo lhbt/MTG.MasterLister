@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MTG.MasterLister.DataAccess;
 
 namespace MTG.MasterLister.Domain.Contracts
 {
