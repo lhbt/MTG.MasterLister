@@ -19,7 +19,10 @@ namespace MTG.MasterLister.ViewModels
 
         public MainViewModel()
         {
-            
+            using (var cardsContext = new CardsContext())
+            {
+                Cards = new ObservableCollection<Card>(cardsContext.Cards);
+            }
         }
 
     }

@@ -21,10 +21,10 @@ namespace MTG.MasterLister.Domain
             {
                 var actualCardQuantity = _databaseWrapper.CheckQuantityForCard(card.Name);
 
-                if (actualCardQuantity >= card.QuantityNeeded) continue;
+                if (actualCardQuantity >= card.IdealQuantity) continue;
 
-                _databaseWrapper.UpdateCardQuantityNeeded(card.Name, card.QuantityNeeded);
-                var updateMessage = string.Format("Updated card: {0}. Old quantity was: {1}, new quantity is {2}.", card.Name, actualCardQuantity, card.QuantityNeeded);
+                _databaseWrapper.UpdateCardQuantityNeeded(card.Name, card.IdealQuantity);
+                var updateMessage = string.Format("Updated card: {0}. Old quantity was: {1}, new quantity is {2}.", card.Name, actualCardQuantity, card.IdealQuantity);
                 updates.Add(updateMessage);
             }
 

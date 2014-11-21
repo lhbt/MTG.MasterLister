@@ -1,14 +1,22 @@
-﻿namespace MTG.MasterLister.DataAccess
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MTG.MasterLister.DataAccess
 {
     public class Card
     {
-        public int QuantityNeeded { get; set; }
-        public int QuantityOwned { get; set; }
+        public int IdealQuantity { get; set; }
+        public int OwnedQuantity { get; set; }
+        [Key]
         public string Name { get; set; }
+
+        public Card()
+        {
+            
+        }
 
         public Card(int quantity, string name)
         {
-            QuantityNeeded = quantity;
+            IdealQuantity = quantity;
             Name = name;
         }
     }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MTG.MasterLister.UI.Properties {
+namespace MTG.MasterLister.DataAccess.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -26,10 +26,11 @@ namespace MTG.MasterLister.UI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=C:\\git-perso\\MTG.MasterLister\\MTG.MasterLister.UI\\Cards.sqlite")]
-        public string CardsConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=C:\\git-perso\\MTG.MasterLister\\MTG.MasterLister.UI\\bin\\Debug\\MasterLis" +
+            "t.sqlite")]
+        public string MasterListConnectionString {
             get {
-                return ((string)(this["CardsConnectionString"]));
+                return ((string)(this["MasterListConnectionString"]));
             }
         }
     }

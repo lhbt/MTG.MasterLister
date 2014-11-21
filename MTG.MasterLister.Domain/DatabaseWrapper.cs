@@ -17,7 +17,7 @@ namespace MTG.MasterLister.Domain
             if (card == null)
                 InsertNewCard(cardName);
 
-            else quantity = card.QuantityNeeded;
+            else quantity = card.IdealQuantity;
             return quantity;
         }
 
@@ -28,7 +28,7 @@ namespace MTG.MasterLister.Domain
             if (card == null)
                 InsertNewCard(cardName);
 
-            else card.QuantityNeeded = newQuantity;
+            else card.IdealQuantity = newQuantity;
 
             _context.SaveChanges();
         }

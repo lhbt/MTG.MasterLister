@@ -1,11 +1,16 @@
 ﻿<Window x:Class="MTG.MasterLister.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels="clr-namespace:MTG.MasterLister.ViewModels;assembly=MTG.MasterLister.ViewModels"
         Title="MainWindow" Height="513" Width="938">
+    <Window.DataContext>
+        <viewModels:MainViewModel />    
+    </Window.DataContext>
     <Grid Height="Auto" VerticalAlignment="Top">
         <TextBox HorizontalAlignment="Left" Height="432" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="286"/>
         <Button Content="Submit new decklist" HorizontalAlignment="Left" Margin="67,447,0,0" VerticalAlignment="Top" Width="173" Height="28"/>
-        <DataGrid HorizontalAlignment="Left" Margin="301,10,0,0" VerticalAlignment="Top" Height="465" Width="619"/>
+        <DataGrid HorizontalAlignment="Left" Margin="301,10,0,0" VerticalAlignment="Top" Height="465" Width="619" ItemsSource="{Binding Cards}"
+                  IsReadOnly="True"/>
 
     </Grid>
 </Window>
